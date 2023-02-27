@@ -14,7 +14,9 @@ jobs:
       runs-on: ubuntu-latest
       strategy:
         max-parallel: 1
+        fail-fast: true
         matrix:
+          stage: ["dev", "prod"]
           include:
             - environment: dev
               url: https://dev.my.service
