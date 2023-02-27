@@ -1,0 +1,27 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  push
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  deploy:
+      name: Deploy
+      runs-on: ubuntu-latest
+      strategy:
+        matrix:
+          include:
+            - environment: dev
+              url: https://dev.my.service
+            - environment: prod
+              url: https://prod.my.service
+      environment:
+        url: ${{ matrix.url }}
+        name: ${{ matrix.environment }}
+      steps:
+        - uses: actions/checkout@v2
+        - run: echo "hello"
