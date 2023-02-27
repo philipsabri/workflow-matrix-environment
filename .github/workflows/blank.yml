@@ -13,6 +13,7 @@ jobs:
       name: Deploy
       runs-on: ubuntu-latest
       strategy:
+        max-parallel: 1
         matrix:
           include:
             - environment: dev
@@ -25,3 +26,4 @@ jobs:
       steps:
         - uses: actions/checkout@v2
         - run: echo "hello"
+        - run: sleep 100
