@@ -27,4 +27,4 @@ jobs:
       steps:
         - uses: actions/checkout@v2
         - run: echo "from matrix variables ${{ matrix.url }}"
-        - run: echo ${{ env.IM_FROM }}
+        - run: echo ${{ vars.IM_FROM }}
